@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('design', function () {
-    return view('layouts.admin');
+Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
+    Route::get('/hello' ,'Hellocontroller@hello')->name('hello');
+});
+
+Route::group(['namespace' => 'Site', 'middleware' => 'guest'], function () {
+
 });
