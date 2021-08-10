@@ -1,70 +1,61 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
 
 
-                <form method="POST" action="{{ route('login') }}">
+<section class="contact_section layout_padding">
+    <div class="contact_bg_box">
+      <img src="{{asset('assets/front/images/contact-bg.jpg')}}" alt="">
+    </div>
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+		Member Login
+        </h2>
+      </div>
+      <div class="">
+        <div class="row">
+          <div class="col-md-7 mx-auto">
+		  <form method="POST" action="{{ route('login') }}">
                         @csrf
-					<span class="login100-form-title">
-						Member Login
-					</span>
+              <div class="contact_form-container">
+                <div class="row">
+                  <div class="col-sm-12">
+					<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" 
+					name="email" value="{{ old('email') }}" placeholder="Email"  autocomplete="email">
 
-                    <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-8">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-8">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-					
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
-					</div>
-
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
+					@error('email')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
 						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
-					</div>
+					@enderror
 
-					<div class="text-center p-t-136">
-						<a class="txt2" href="{{route('register')}}">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                  </div>
+                  <div class="col-sm-12">
+				  <input id="password" type="password" placeholder="password"class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
+
+					@error('password')
+						<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
+
+				</div>
+                </div>
+              
+                <div class="btn-box ">
+                  <button type="submit">
+                    Send
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            Dont have account <a href="{{ route('register') }}">register</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 	@endsection

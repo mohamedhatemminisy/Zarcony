@@ -12,7 +12,15 @@
 */
 
 Route::group(['namespace' => 'Site', 'middleware' => 'auth'], function () {
-    Route::get('/hello' ,'Hellocontroller@hello')->name('hello');
+    Route::get('/profile' ,'profileController@profile')->name('profile');
+    Route::post('/update_profile' ,'profileController@update_profile')->name('update_profile');
+
+    
+    Route::get('/transfer' ,'profileController@transfer')->name('transfer');
+    Route::post('/transfer_money' ,'profileController@transfer_money')->name('transfer_money');
+    Route::get('/my_transactions' ,'profileController@my_transactions')->name('my_transactions');
+
+    
 });
 
 Route::group(['namespace' => 'Site', 'middleware' => 'guest'], function () {
