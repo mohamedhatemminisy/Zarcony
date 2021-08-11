@@ -19,6 +19,34 @@
                     </div>
                 </div>
             </div>
+
+
+            <form action="" method="get">
+    @csrf
+    <div class="row mb-2">
+        <div class="col-md-4">
+            <label>@lang('general.fields.user')</label>
+            <input type="text" name="user" class="form-control">
+        </div>
+
+
+        <div class="col-md-3">
+            <label>amount</label>            
+                <input type="text" name="amount" class="form-control" >
+            </select>
+        </div>    
+     
+   
+       
+        <div class="col-md-2 mt-2">
+            <button type="submit" class="btn btn-success btn-sm">Filter</button>
+        </div>
+ 
+    </div>
+ </form>
+
+
+
             <div class="content-body">
                 <!-- DOM - jQuery events table -->
                 <section id="dom">
@@ -44,7 +72,7 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <table
-                                            class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                            class="table">
                                             <thead class="">
                                             <tr>
                                                 <th>sender </th>
@@ -76,6 +104,8 @@
                                 </div>
                             </div>
                         </div>
+                        {{ $transactions->links('vendor.pagination.custom') }}
+
                     </div>
                 </section>
             </div>

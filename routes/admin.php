@@ -25,6 +25,7 @@ Route::group(['namespace' => 'Dashboard', 'middleware' => 'auth:admin','prefix' 
     Route::get('/user_transactions/{id}', 'UsersController@user_transactions')->name('user_transactions');  // the first page admin visits if authenticated
 
     Route::get('/all_transactions', 'TransactionController@index')->name('all_transactions');  // the first page admin visits if authenticated
+    Route::get('/statistics', 'TransactionController@statistics')->name('statistics');  // the first page admin visits if authenticated
 
 
 });
