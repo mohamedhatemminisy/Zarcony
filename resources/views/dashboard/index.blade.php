@@ -8,7 +8,7 @@
             </div>
             <div class="content-body">
                 <div id="crypto-stats-3" class="row">
-                    <div class="col-xl-3 col-12">
+                    <div class="col-xl-6 col-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body pb-0">
@@ -17,10 +17,10 @@
                                             <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>اجمالي المبيعات</h4>
+                                            <h4>Total users </h4>
                                         </div>
                                         <div class="col-5 text-right">
-                                            <h4>$9,980</h4>
+                                            <h4>{{$total_users}}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-12">
+                    <div class="col-xl-6 col-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body pb-0">
@@ -42,10 +42,10 @@
                                             <h1><i class="cc BTC warning font-large-2" title="BTC"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>اجالي الطلبات</h4>
+                                            <h4>Total transactions </h4>
                                         </div>
                                         <div class="col-5 text-right">
-                                            <h4>$9,980</h4>
+                                            <h4>{{$total_transactions}}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-3 col-12">
+                    <div class="col-xl-6 col-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body pb-0">
@@ -67,10 +67,10 @@
                                             <h1><i class="cc ETH blue-grey lighten-1 font-large-2" title="ETH"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>عدد المنتجات </h4>
+                                            <h4>Success transactions count</h4>
                                         </div>
                                         <div class="col-5 text-right">
-                                            <h4>30</h4>
+                                            <h4>{{$success_transactions}}</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-12">
+                    <div class="col-xl-6 col-12">
                         <div class="card crypto-card-3 pull-up">
                             <div class="card-content">
                                 <div class="card-body pb-0">
@@ -91,10 +91,10 @@
                                             <h1><i class="cc XRP info font-large-2" title="XRP"></i></h1>
                                         </div>
                                         <div class="col-5 pl-2">
-                                            <h4>عدد العملاء</h4>
+                                            <h4>Fail transactions count </h4>
                                         </div>
                                         <div class="col-5 text-right">
-                                            <h4>100</h4>
+                                            <h4>{{$fail_transactions}}</h4>
                                         </div>
                                     </div>
                                 </div>
