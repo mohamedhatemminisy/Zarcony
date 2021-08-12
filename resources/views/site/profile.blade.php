@@ -13,9 +13,11 @@
 		Member Profile
         </h2>
       </div>
-      <div class="">
+      <div >
         <div class="row">
           <div class="col-md-7 mx-auto">
+          {{$user->name}}  balance is : {{$user->balance}}
+
           <form method="POST" action="{{ route('update_profile') }}">
                         @csrf
               <div class="contact_form-container">
