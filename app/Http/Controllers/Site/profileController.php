@@ -32,15 +32,20 @@ class profileController extends Controller
     }
 
     public function transfer_money(TransactionsRequest $request){
-        $user_balance = (int)User::find( Auth()->user()->id)->balance;
+        $last_hour_transactions = array_sum(\DB::table('transactions')->where('sender_id',Auth()->user()->id)
+        ->where('created_at', '>=', \Carbon\Carbon::now()->subHour())->pluck('amount')->toArray());
 
-        if($user_balance > (int)$request->amount){
+        if($last_hour_transactions +  $request->amount > 200  || $request->amount > 200){
+            return redirect()->back()->with(['error' => 'You can tansfer only 200 el for hour']);
+        }else{
+        $user_balance = (int)User::find( Auth()->user()->id)->balance;
+        if($user_balance > $request->amount){
             $sender = User::find( Auth()->user()->id);
-            $sender->balance -=  (float)$request->amount;
+            $sender->balance -=  $request->amount;
             $sender->save();
 
             $receiver = User::find( $request->receiver_id);
-            $receiver->balance += (float)$request->amount;
+            $receiver->balance += $request->amount;
             $receiver->save();
             $status = 'success';
         }
@@ -58,7 +63,8 @@ class profileController extends Controller
         $transaction->receiver_id = $request->receiver_id;
         $transaction->status = $status;
         $transaction->save();
-        return redirect()->route('home');
+        return redirect()->back()->with(['success' => 'Transaction added successfully']);
+    }
 
     }
 

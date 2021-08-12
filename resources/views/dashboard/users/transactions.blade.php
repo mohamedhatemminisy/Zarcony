@@ -44,7 +44,7 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <table
-                                            class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                            class="table">
                                             <thead class="">
                                             <tr>
                                                 <th>sender </th>

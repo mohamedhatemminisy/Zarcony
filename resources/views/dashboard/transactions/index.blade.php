@@ -21,14 +21,41 @@
             </div>
 
 
-            <form action="" method="get">
+            <form action="{{route('filter')}}" method="get">
     @csrf
     <div class="row mb-2">
-        <div class="col-md-4">
-            <label>@lang('general.fields.user')</label>
-            <input type="text" name="user" class="form-control">
+    <div class="col-md-4">
+            <label>Sender</label>
+            <select name="sender" class="form-control">
+            <option value="0">Select sender</option>
+           @if($users->count() > 0)
+            @foreach ($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+                @endforeach
+                @endif
+            </select>
         </div>
 
+        <div class="col-md-4">
+            <label>Reciever</label>
+            <select name="rseciever" class="form-control">
+            <option value="0">Select Reciever</option>
+           @if($users->count() > 0)
+            @foreach ($users as $user)
+                <option value="{{$user->id}}">{{$user->name}}</option>
+                @endforeach
+                @endif
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label>Status</label>
+            <select name="status" class="form-control">
+            <option value="0">Select Status</option>
+                <option value="success">success</option>
+                <option value="fail">fail</option>
+            </select>
+        </div>
 
         <div class="col-md-3">
             <label>amount</label>            
